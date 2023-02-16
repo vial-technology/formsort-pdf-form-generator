@@ -1,0 +1,33 @@
+@font-face {
+	font-family: "Satoshi";
+	src: url("/static/fonts/Satoshi-Variable.ttf");
+}
+
+@font-face {
+	font-family: "Satoshi";
+	font-style: italic;
+	src: url("/static/fonts/Satoshi-VariableItalic.ttf");
+}
+
+html, body {
+	font-family: Satoshi, Helvetica, Arial, sans-serif;
+}
+
+body {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+}
+
+table td {
+	padding: 8px;
+}
+
+table td code {
+	font-weight: bold;
+}
+
+input.url {
+	width: 100%;
+	padding: 8px;
+}
