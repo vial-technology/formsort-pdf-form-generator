@@ -16,6 +16,10 @@ export const getCSS = async () => `
 		text-align: left;
 	}
 
+	td.answer b {
+		white-space: pre;
+	}
+
 	thead tr {
 		border-bottom: 1px solid black;
 	}

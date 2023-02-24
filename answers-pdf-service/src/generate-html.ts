@@ -59,7 +59,7 @@ const getTemplate = async () => `
 							<code>{{row.key}}</code>
 						</td>
 					{% endif %}
-					<td>
+					<td class="answer">
             {% if opts.includeSelectChoices and row.choices %}
               <div class="choices">
                 {% for choice in row.choices %}
@@ -121,10 +121,15 @@ const getAnswerRows = async (
                 index: questionIdx + 1,
                 label: questionLabel,
               },
-              answer: question.schemaKey
-                ? answers[question.schemaKey]
-                : undefined,
             };
+
+            if (question.schemaKey) {
+              let answer = answers[question.schemaKey];
+              if (typeof answer === 'object') {
+                answer = JSON.stringify(answer, null, 2);
+              }
+              row.answer = answer;
+            }
 
             if (!emittedGroup) {
               row.group = {

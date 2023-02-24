@@ -17,6 +17,6 @@ export type AnswerTableRow = {
   step?: IndexAndLabel;
   key?: string;
   question: IndexAndLabel;
-  answer: string;
+  answer?: string;
   choices?: Array<{ value: string | number | boolean; label: string }>;
 };
