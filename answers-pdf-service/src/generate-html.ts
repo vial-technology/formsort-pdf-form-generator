@@ -169,6 +169,11 @@ export const generateHTML = async ({
   flowContent: DenormVariantRevision;
   options: GenerateHTMLOptions;
 }) => {
+  console.log({
+    answers,
+    flowContent,
+    options
+  })
   const css = await getCSS();
   const templateContent = await getTemplate();
   const answerRows = await getAnswerRows(flowContent, answers, options);

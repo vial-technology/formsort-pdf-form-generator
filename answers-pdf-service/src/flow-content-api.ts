@@ -19,6 +19,7 @@ export const getFlowContentJSONFromAPI = async (
     headers: { 'x-api-key': FORMSORT_API_KEY },
   });
   const json = await response.json();
+  console.log({json: JSON.stringify(json)})
   if (typeof json !== 'object' || json === null || !('flowContent' in json)) {
     throw new Error('flowContent missing in response');
   }

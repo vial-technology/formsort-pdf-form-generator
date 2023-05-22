@@ -2,7 +2,6 @@ import { NextApiRequest } from 'next';
 
 import { z } from 'zod';
 export const GeneratePDFRequestParametersModel = z.object({
-  responderUuid: z.string().uuid(),
   variantRevisionUuid: z.string().uuid(),
   answers: z.record(z.string(), z.any()),
 });
@@ -34,11 +33,10 @@ const getParamsFromPOSTRequest = (req: NextApiRequest): object => {
   };
 };
 
-const getParamsFromGETRequest = (req: NextApiRequest): object => {
-  const { variantRevisionUuid, responderUuid, ...answers } = req.query;
+const getParamsFromGETRequest = (req: NextApiRequest) => {
+  const { variantRevisionUuid } = req.query;
   return {
     variantRevisionUuid,
-    responderUuid,
-    answers,
+    answers: {} // empty for now
   };
 };
