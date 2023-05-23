@@ -2,9 +2,9 @@ FROM node:lts
 
 WORKDIR /usr/app
 
-COPY package.json yarn.lock ./
+COPY answers-pdf-service/. .
+
 RUN yarn install
-COPY . .
 RUN yarn run build
 
 EXPOSE $PORT
