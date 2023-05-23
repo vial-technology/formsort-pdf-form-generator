@@ -12,12 +12,16 @@
   "author": "Fil Zembowicz <fil@formsort.com>",
   "license": "ISC",
   "type": "module",
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "handlebars": "^4.7.7",
     "next": "^13.1.6",
-    "node-fetch": "^3.3.0",
+    "node-fetch": "^2.6.0",
     "nunjucks": "^3.2.4",
-    "puppeteer": "^20.3.0",
+    "chrome-aws-lambda": "10.1.0",
+    "puppeteer-core": "10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark": "^14.0.2",
