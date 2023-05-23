@@ -13,7 +13,6 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.267.0",
     "handlebars": "^4.7.7",
     "next": "^13.1.6",
     "node-fetch": "^3.3.0",
@@ -22,7 +21,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark": "^14.0.2",
-    "strip-markdown": "^5.0.0",
     "zod": "^3.20.2"
   },
   "devDependencies": {
