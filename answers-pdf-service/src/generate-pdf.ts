@@ -1,19 +1,15 @@
-import edgeChromium from 'chrome-aws-lambda'
-
-// Importing Puppeteer core as default otherwise
-// it won't function correctly with "launch()"
-import puppeteer from 'puppeteer-core'
-
-const LOCAL_CHROME_EXECUTABLE = ''
+import chromium from 'chrome-aws-lambda';
+import puppeteer from 'puppeteer-core';
 
 export const generatePDF = async (pageContent: string): Promise<Buffer> => {
-  const executablePath = await edgeChromium.executablePath || LOCAL_CHROME_EXECUTABLE
   
   const browser = await puppeteer.launch({
-    executablePath,
-    args: edgeChromium.args,
-    headless: false,
-  })
+    args: [...chromium.args, '--hide-scrollbars', '--disable-web-security'],
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath,
+    headless: true,
+    ignoreHTTPSErrors: true,
+  });
   const page = await browser.newPage();
 
   await page.setContent(pageContent);
