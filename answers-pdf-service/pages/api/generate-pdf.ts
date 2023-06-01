@@ -6,13 +6,14 @@ import { time } from '../../src/utils';
 import { getPDFParametersFromRequest } from '../../src/request-processing';
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  const { variantRevisionUuid, answers } =
+  const { variantRevisionUuid, answers, formName } =
     getPDFParametersFromRequest(req);
 
   const flowContent = await getFlowContentJSONFromAPI(variantRevisionUuid);
   const pageHTML = await generateHTML({
     answers,
-    flowContent
+    flowContent,
+    formName
   });
   const pdfBuffer = await time(generatePDF, [pageHTML]);
 

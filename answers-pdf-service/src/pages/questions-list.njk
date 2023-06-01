@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style> {{css}} </style>
 </head>
 <body>
+    <header class="header">
+        <img class="company-logo" src="https://vial.com/wp-content/uploads/2021/12/logo.svg" alt="Company Logo">
+        </br>
+        <h1 class="form-name">{{ formName }}</h1>
+    </header>
     {% for group in groups %}
         {% for step in group.steps %}
             {% for question in step.questions %}
