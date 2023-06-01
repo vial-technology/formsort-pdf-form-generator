@@ -9,7 +9,9 @@ export const generatePDF = async (pageContent: string): Promise<Buffer> => {
 
   await page.setContent(pageContent);
 
-  const pdfBuffer = await page.pdf({ printBackground: true });
+  const pdfBuffer = await page.pdf({ printBackground: true, margin: {
+    top: '10'
+  } });
 
   await page.close();
   await browser.close();
