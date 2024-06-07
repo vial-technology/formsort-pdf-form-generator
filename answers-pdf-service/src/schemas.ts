@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from "zod";
 
 /**
  * This file was generated programmatically.
@@ -24,7 +24,7 @@ export const DenormVariantRevisionModel = z.object({
       steps: z.array(
         z.object({
           enabledWhen: z.record(z.any()).optional(),
-          label: z.string(),
+          label: z.string().optional(),
           id: z.string().optional(),
           questions: z.array(
             z.object({
@@ -46,21 +46,25 @@ export const DenormVariantRevisionModel = z.object({
                 )
                 .optional(),
               optional: z.boolean().optional(),
-              subQuestions: z.array(z.object({
-                label: z.string(),
-                schemaKey: z.string().optional(),
-                choices: z
-                  .array(
-                    z.object({
-                      label: z.string(),
-                      value: z.union([
-                        z.string(),
-                        z.boolean(),
-                        z.number().int(),
-                        z.number(),
-                      ]),
-                    })
-                  )})).optional()
+              subQuestions: z
+                .array(
+                  z.object({
+                    label: z.string(),
+                    schemaKey: z.string().optional(),
+                    choices: z.array(
+                      z.object({
+                        label: z.string(),
+                        value: z.union([
+                          z.string(),
+                          z.boolean(),
+                          z.number().int(),
+                          z.number(),
+                        ]),
+                      })
+                    ),
+                  })
+                )
+                .optional(),
             })
           ),
           redirects: z
